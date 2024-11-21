@@ -1,0 +1,85 @@
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-box {
+  position: absolute;
+  background-color: #333;
+  color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.tooltip-box::after {
+  content: '';
+  position: absolute;
+  border-style: solid;
+}
+
+/* Top */
+.tooltip-top {
+  top: -118%;
+}
+
+.tooltip-top::after {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px 5px 0;
+  border-color: #333 transparent transparent transparent;
+}
+
+/* Right */
+.tooltip-right {
+  top: 0;
+  left: 104%;
+}
+
+.tooltip-right::after {
+  top: 50%;
+  left: -5px;
+  transform: translateY(-50%);
+  border-width: 5px 5px 5px 0;
+  border-color: transparent #333 transparent transparent;
+}
+
+/* Bottom */
+.tooltip-bottom {
+  top: 118%;
+  left: -5%;
+}
+
+.tooltip-bottom::after {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0 5px 5px;
+  border-color: transparent transparent #333 transparent;
+}
+
+/* Left */
+.tooltip-left {
+  top: 0;
+  right: 104%;
+}
+
+.tooltip-left::after {
+  top: 50%;
+  right: -5px;
+  transform: translateY(-50%);
+  border-width: 5px 0 5px 5px;
+  border-color: transparent transparent transparent #333;
+}
+
+/* Hover effect */
+.tooltip-container:hover .tooltip-box {
+  opacity: 1;
+  transform: translateY(0);
+}
